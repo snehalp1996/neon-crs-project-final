@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+/* function testLet(x){
+    let y;
+    
+    if(x==1){
+        let d=10;
+        y=2;
+        console.log("print the d-->"+d);
+        console.log("print the y-->"+y);
+    }
+    console.log("print the d-->"+d);
+        console.log("print the y-->"+y);
+}
+//var t=new testLet(1);
+testLet(1);
+
+        console.log("value the y-->"+y);
+ */
+
+
+ //Arrows
+//es5
+ var multiply=function(x,y){
+    return x*y;
+
+ }
+ console.time('Es5');
+ console.log(multiply(2,3));
+ console.timeEnd('Es5');
+
+ //es6
+ let multiply1=(x,y)=>{return x*y};
+ console.time('Es6');
+ console.log(multiply(2,3));
+ console.timeEnd('Es6');
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

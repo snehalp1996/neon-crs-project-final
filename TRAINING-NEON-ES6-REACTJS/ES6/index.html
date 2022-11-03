@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+//ES6
+//class & object
+
+class Person{
+    #test;
+    constructor(name ,age){
+        this.name=name;
+        this.age=age;
+        this.#test=100;
+
+
+        console.log("person name is inint-->");
+        console.log("Name of the person-->");
+        console.log("Age of the person-->");
+    }
+
+    //private method here
+    #StuffPrivateMethod(){
+        console.log("call private here-->");
+        this.#test;
+    }
+
+    //create the public method in JS/ES
+
+
+    getConcatValue(){
+
+return this.conCat();
+
+    }
+
+
+     conCat(){
+
+return this.name + " with duration " +this.age;
+}
+
+//previleged method
+
+preMethod(){
+    console.log("call previleged one here-->");
+    return this .#StuffPrivateMethod();
+}
+ //create a static method
+static  testStatic(){
+    console.log("call static one here-->");
+    return "I am the static method";
+} 
+   
+}//class defination over here
+
+//class extension
+
+Person.prototype.testRef=100;
+Person.prototype.sayHallo=function(){
+    console.log("extension of class-->");
+    return this.testRef;
+}
+
+
+//class
+class Student extends Person{
+testChildMethod(){
+    console.log("call inheritance one -->");
+    return "I am the child one";
+} 
+}
+
+
+
+//var p=new Person("Neon",3);
+var s=new Student("Neon",3);
+console.log("call the method-->"+ s.getConcatValue());
+console.log("call the private method-->"+ s.preMethod());
+console.log("call the child code-->"+ s.sayHallo());
+console.log("call the extesion code-->"+ s.testChildMethod());
+console.log("call the static method-->"+ Person.testStatic());
+
+
+
+
+//assignment 1 and 2
+
+
+class BasicCal{
+#add=()=>{
+
+   let x = 100 + 50;
+
+   return x;
+
+
+};
+
+
+//previleged method
+privateMethod(){
+    console.log("call add method here-->");
+    return this .#add();
+}
+
+
+//create a static method
+ static sub=()=>{
+    
+    let x = 10;
+return x -= 5;
+
+
+};
+
+ //create the public method in JS/ES
+mul=()=>{
+    
+    let x = 10;
+return x *= 5;
+
+
+};
+
+//class extension
+}
+ BasicCal.prototype.div=function(){
+    let x = 10;
+return x /= 5;
+ }
+
+
+class SciCal extends BasicCal{
+
+ 
+
+    //cos() private method
+   #getCircleX=(radians, radius)=> {
+  return Math.cos(radians) * radius;
+  
+};
+
+
+//previleged method
+preMethod(){
+    console.log("call cos method here-->");
+    return this.#getCircleX(1, 10);
+ }
+
+ //static method
+ static getCircleY=(radians, radius)=> {
+   
+  return Math.sin(radians) * radius;
+
+};
+
+}
+//create the public method in JS/ES with arrow function es6
+let getTanFromDegrees=(degrees)=> {
+
+return Math.tan(degrees * Math.PI / 180);
+
+};
+
+//es5
+let getTanFromDegrees1=function(degrees) {
+
+return Math.tan(degrees * Math.PI / 180);
+
+}
+
+
+//sqrt extension es6 with arrow function
+SciCal.prototype.calSqrt=(a,b)=>{
+    return (Math.sqrt((a * a) + (b * b)));
+
+
+};
+
+var cal=new SciCal();
+console.log("call the private method:addition-->"+ cal.privateMethod());
+console.log("call the  mul method:multiplication -->"+ cal.mul());
+console.log("call the division method:Division-->"+ cal.div());
+console.log("call the static sub method:substraction-->"+ BasicCal.sub());
+console.log("call the static sin method:sin-->"+ SciCal.getCircleY(1,10));
+console.log("call the private cos method:cos-->"+ cal.preMethod());
+console.log("call the tan method:tan-->"+ getTanFromDegrees(10));
+console.log("call the extension child sqrt code:sqrt-->"+cal.calSqrt(3,4));
+
+
+
+
+//assignment 3
+
+
+    
+
+    var  customer = [{customerName: "vaibhav", id: 11},
+                     {customerName: "shruti", id: 22 },
+                     {customerName: "kartiki", id: 33} ];
+
+
+
+ createCustomer=()=>{
+   
+    customer.push({customerName: "neha", id: 44} );
+    console.log("customer added successfully" );
+   return console.log(customer);
+
+
+};
+ listCustomer=()=>{
+   
+    for (let i = 0; i < customer.length; i++) {
+  console.log(customer[i] );
+}
+};
+ updateCustomer=(id)=>{
+   custIndex=customer.findIndex((obj)=>obj.id==11);
+   console.log("original list-->",customer[custIndex]);
+   customer[custIndex].customerName="rajvir";
+  return  console.log(customer[custIndex]);
+    
+};
+
+ deleteCustomer=(id)=>{
+    return console.log(customer.slice(2));
+    };
+
+   
+
+                   
+     
+
+//var cust =new Customer();
+var choice=prompt(("choose a number between 0 and 3","0,1,2,3"));
+
+// console.log(choice);
+// console.log(typeof(choice));
+switch (parseInt(choice)) {
+  case 0:
+  console.log("customer added-->"+createCustomer());
+  
+    break;
+  case 1:
+  console.log("customer list-->"+listCustomer());
+    break;
+    case 2:
+  console.log("customer updated-->"+updateCustomer());
+    break;
+    case 3:
+  console.log("customer deleted-->"+deleteCustomer());
+    break;
+  default:
+  console.log("No value found"); 
+
+}
+
+
+
+
+
+
+
+
+
+
+    // class Customer{
+    //   constructor(){
+    //     this.length=0;
+    //     this.data={};
+    //   }
+    //   getElementAtIndex(index){
+    //     return this.data[index];
+    //   }
+    //   push(customer){
+    //     this.data[this.length]=customer;
+    //     this.length++;
+    //     return this.length;
+    //   }
+    //   pop(){
+    //     const item= this.data[this.length-1];
+    //     delete this.data[this.length-1];
+    //     this.length--;
+    //     return this.data;
+    //   }
+    //   deleteAt(index){
+    //     for(let i=index; i<this.length-1;i++){
+    //       this.data[i]=this.data[i+1];
+    //     }
+    //     delete this.data[this.length-1];
+    //     this.length--;
+    //     return this.data;
+    //   }
+    //   insertAt(item, index){
+    //     for(let i=this.length;i>=index;i--){
+    //       this.data[i]=this.data[i-1];
+    //     }
+    //     this.data[index]=item;
+    //     this.length++;
+    //     return this.data;
+    //   }
+    // }
+    // const cust= new Customer(); 
+    // cust.push({customerName: "rina", id: 11});
+                     
+                    
+    // cust.push({customerName: "sonal", id: 22 }); 
+    // cust.push({customerName: "komal", id: 33});
+    
+    // document.write("<div>add customer in an customer array</div>");
+    // for(var key in cust.data){
+    //   document.write(cust.data[{customerName: "vaibhav", id: 44}]); 
+    // }
+      
+      
+    // document.write("<div>delete last customer in an customer array</div>");
+    // cust.pop(); 
+    // for(var key in cust.data){
+    //   document.write(cust.data[{customerName: "komal", id: 33}]); 
+    // }
+      
+      
+    // document.write("<div>Inserting customer at position 2</div>");
+    // cust.insertAt("sadhana", 2); 
+    // for(var key in cust.data){
+    //   document.write(cust.data[{customerName: "radha", id: 66}]); 
+    // }
+      
+    // document.write("<div>deleting customer at position 3</div>");
+    // cust.deleteAt(3); 
+    // for(var key in cust.data){
+    //   document.write(cust.data[{customerName: "vaibhav", id: 44}]); 
+    // }
+      
+    // document.write("<div>Getting  customer at position 2</div>");
+    // document.write("<div>"+cust.getElementAtIndex(2)+"</div>");
+   
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
